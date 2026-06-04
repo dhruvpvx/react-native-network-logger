@@ -2,17 +2,9 @@
   "name": "react-native-network-logger",
   "version": "2.0.1",
   "description": "An HTTP traffic monitor for React Native",
-  "main": "./lib/module/index.js",
-  "types": "./lib/typescript/src/index.d.ts",
-  "exports": {
-    ".": {
-      "source": "./src/index.tsx",
-      "types": "./lib/typescript/src/index.d.ts",
-      "default": "./lib/module/index.js"
-    },
-    "./package.json": "./package.json"
-  },
-  "source": "src/index.tsx",
+  "main": "./src/index.tsx",
+  "types": "./src/index.tsx",
+  "source": "./src/index.tsx",
   "repository": {
     "type": "git",
     "url": "https://github.com/dhruvpvx/react-native-network-logger.git"
@@ -20,45 +12,10 @@
   "author": "dhruvpvx",
   "license": "MIT",
   "files": [
-    "lib",
     "src"
   ],
-  "scripts": {
-    "typescript": "tsc --noEmit",
-    "lint": "eslint \"**/*.{js,ts,tsx}\"",
-    "prettier": "prettier --check 'src/**/*.{js,json,ts,tsx}'",
-    "build": "bob build"
-  },
-  "devDependencies": {
-    "@react-native/babel-preset": "0.84.1",
-    "@types/react": "^19.2.14",
-    "eslint": "^9.26.0",
-    "prettier": "^3.5.3",
-    "react": "~19.2.0",
-    "react-native": "0.83.3",
-    "react-native-builder-bob": "^0.40.18",
-    "typescript": "^5.8.3"
-  },
   "peerDependencies": {
     "react": "*",
     "react-native": "*"
-  },
-  "react-native-builder-bob": {
-    "source": "src",
-    "output": "lib",
-    "targets": [
-      [
-        "module",
-        {
-          "esm": true
-        }
-      ],
-      [
-        "typescript",
-        {
-          "project": "tsconfig.build.json"
-        }
-      ]
-    ]
   }
 }
