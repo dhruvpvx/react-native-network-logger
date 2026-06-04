@@ -9,9 +9,9 @@ import {
   Platform,
   TextInput,
 } from 'react-native';
-import JSONTree from 'react-native-json-tree';
 import NetworkRequestInfo from '../NetworkRequestInfo';
-import { useThemedStyles, useTheme, Theme } from '../theme';
+import { useThemedStyles, Theme } from '../theme';
+import JSONTree from './JSONTree';
 import { backHandlerSet } from '../backHandler';
 import ResultItem from './ResultItem';
 import Header from './Header';
@@ -87,40 +87,8 @@ const JsonContent: React.FC<{ data: any; raw: string }> = ({
   data,
   raw,
 }) => {
-  const theme = useTheme();
-  const styles = useThemedStyles(themedStyles);
-
   if (data && typeof data === 'object') {
-    const jsonTheme = {
-      scheme: 'custom',
-      base00: theme.colors.card,
-      base01: theme.colors.background,
-      base02: theme.colors.muted,
-      base03: theme.colors.muted,
-      base04: theme.colors.text,
-      base05: theme.colors.text,
-      base06: theme.colors.text,
-      base07: theme.colors.text,
-      base08: theme.colors.statusBad,
-      base09: theme.colors.statusWarning,
-      base0A: theme.colors.statusWarning,
-      base0B: theme.colors.statusGood,
-      base0C: theme.colors.secondary,
-      base0D: theme.colors.link,
-      base0E: theme.colors.secondary,
-      base0F: theme.colors.statusBad,
-    };
-
-    return (
-      <View style={styles.jsonTreeContainer}>
-        <JSONTree
-          data={data}
-          theme={jsonTheme}
-          invertTheme={false}
-          hideRoot
-        />
-      </View>
-    );
+    return <JSONTree data={data} />;
   }
 
   return <PlainText>{raw}</PlainText>;
@@ -353,10 +321,6 @@ const themedStyles = (theme: Theme) =>
     },
     plainTextContent: {
       flex: 1,
-    },
-    jsonTreeContainer: {
-      backgroundColor: theme.colors.card,
-      padding: 10,
     },
     emptyText: {
       color: theme.colors.muted,
