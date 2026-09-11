@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { View, TextInput, StyleSheet } from 'react-native';
-import { Theme, useThemedStyles, useTheme } from '../theme';
-import Options from './Options';
-import Filters from './Filters';
+import { StyleSheet, TextInput, View } from 'react-native';
+import { Theme, useTheme, useThemedStyles } from '../theme';
 import { useAppContext } from './AppContext';
+import Filters from './Filters';
 import Icon from './Icon';
+import Options from './Options';
 
 interface Props {
   value: string;
@@ -61,7 +61,11 @@ const themedStyles = (theme: Theme) =>
       paddingVertical: 5,
     },
     backdrop: {
-      ...StyleSheet.absoluteFillObject,
+      position: 'absolute',
+      left: 0,
+      right: 0,
+      top: 0,
+      bottom: 0,
       backgroundColor: 'rgba(0,0,0,0.5)',
     },
     filterIcon: {

@@ -1,10 +1,10 @@
 import React from 'react';
 import {
-  View,
-  StyleSheet,
   Modal,
-  TouchableWithoutFeedback,
+  StyleSheet,
   Text,
+  TouchableWithoutFeedback,
+  View,
 } from 'react-native';
 
 import { Theme, useThemedStyles } from '../theme';
@@ -51,7 +51,11 @@ const NLModal = ({ visible, onClose, children, title }: Props) => {
 const themedStyles = (theme: Theme) =>
   StyleSheet.create({
     modalRoot: {
-      ...StyleSheet.absoluteFillObject,
+      position: 'absolute',
+      left: 0,
+      right: 0,
+      top: 0,
+      bottom: 0,
       justifyContent: 'center',
       alignItems: 'center',
       flex: 1,
@@ -77,7 +81,11 @@ const themedStyles = (theme: Theme) =>
       fontWeight: 'bold',
     },
     backdrop: {
-      ...StyleSheet.absoluteFillObject,
+      position: 'absolute',
+      left: 0,
+      right: 0,
+      top: 0,
+      bottom: 0,
       backgroundColor: 'rgba(0,0,0,0.5)',
     },
   });
